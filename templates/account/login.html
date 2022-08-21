@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+
+    {% if error %}
+        <h3  style="color: red; text-align: center">{{ error }}</h3>
+    {% endif %}
+    <form method="post" style="text-align: center">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="username" placeholder="enter your name"/>
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="enter your password"/>
+        </div>
+
+        <button type="submit">
+            Login
+        </button>
+    </form>
+
+
+
+{% endblock %}
