@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+    {% if not created %}
+
+    <form action="{% url 'articles:create' %}" method="post">
+        {% csrf_token %}
+        <div style="margin-top: 20px">
+             <input type="text" name="title" placeholder="enter title"/>
+        </div>
+       <div style="margin-top: 10px">
+              <textarea name="content" placeholder="enter content"></textarea>
+       </div>
+
+        <button style="margin-top: 10px" type="submit">Creat article</button>
+
+    </form>
+
+    {% else %}
+    <a href="{% url 'articles:article_detail'  article.id  %}">
+    {{ article.title }}
+    </a>
+    {% endif %}
+
+
+
+
+
+
+{% endblock content %}
